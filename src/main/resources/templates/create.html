@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加联系人</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        form {
+            font-size: 20px;
+        }
+        input {
+            font-size: 20px;
+            width: 400px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 150px;
+            margin-left: 318px;
+            font-size: 20px;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        h1 {
+            text-align: center;
+            color: #4a4a4a;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>添加新联系人</h1>
+    <form th:action="@{/contacts}" method="post">
+        姓名：<input type="text" name="name" required><br>
+        地址：<input type="text" name="address"><br>
+        电话：<input type="text" name="phone" required><br>
+        <button type="submit">添加联系人</button>
+    </form>
+    <a href="/contacts">返回通讯录</a>
+</div>
+</body>
+</html>

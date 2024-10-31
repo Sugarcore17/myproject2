@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人通讯录</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #4a4a4a;
+        }
+        table {
+            margin: 20px auto;
+            width: 50%;
+            border: 2px solid #666;
+            border-collapse: collapse;
+            background-color: white;
+        }
+        th, td {
+            border: 1px solid #666;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<h1>通讯录</h1>
+<p style="text-align:center;">
+    <a href="/contacts/add">添加新联系人</a>
+</p>
+<table>
+    <tr>
+        <th>姓名</th>
+        <th>地址</th>
+        <th>电话</th>
+        <th>操作</th>
+    </tr>
+    <tr th:each="contact : ${contacts}">
+        <td th:text="${contact.name}"></td>
+        <td th:text="${contact.address}"></td>
+        <td th:text="${contact.phone}"></td>
+        <td>
+            <a th:href="@{/contacts/edit/{id}(id=${contact.id})}">编辑</a> |
+            <a th:href="@{/contacts/delete/{id}(id=${contact.id})}">删除</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
